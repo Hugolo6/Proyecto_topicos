@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tech_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="32dp"
+        app:cardBackgroundColor="@color/primary_light"
+        app:cardCornerRadius="60dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/checkbox_on_background"
+            app:tint="@color/success" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_mensaje_exito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pedido_confirmado"
+        android:textColor="@color/text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_numero_orden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/orden_numero"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_resumen_pedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="¡Gracias por tu compra! Tu pedido ha sido procesado correctamente y llegará a tu dirección en los próximos 3 a 5 días hábiles."
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_seguir_comprando"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/seguir_comprando"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:cornerRadius="16dp" />
+
+</LinearLayout>
