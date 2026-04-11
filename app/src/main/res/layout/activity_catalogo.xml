@@ -2,7 +2,7 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/contenedor_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tech_background">
@@ -19,7 +19,7 @@
             app:elevation="0dp">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/barra_herramientas"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:titleTextColor="@color/white">
@@ -39,7 +39,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/iv_carrito_toolbar"
+                        android:id="@+id/iv_carrito_barra"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
@@ -76,7 +76,7 @@
                     app:startIconDrawable="@android:drawable/ic_menu_search">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/search_view"
+                        android:id="@+id/campo_busqueda"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text" />
@@ -93,9 +93,8 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <!-- Grid de 2 columnas para Destacados -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_sugerencias"
+                    android:id="@+id/rv_destacados"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
@@ -111,7 +110,7 @@
                     android:scrollbars="none">
 
                     <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chip_group_categorias"
+                        android:id="@+id/grupo_categorias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="16dp"
@@ -178,7 +177,7 @@
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/menu_lateral"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"

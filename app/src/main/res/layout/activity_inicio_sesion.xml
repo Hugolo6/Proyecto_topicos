@@ -43,7 +43,7 @@
         app:startIconDrawable="@android:drawable/ic_dialog_email">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_correo"
+            android:id="@+id/campo_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
@@ -62,14 +62,14 @@
         app:startIconDrawable="@android:drawable/ic_lock_idle_lock">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_contrasena"
+            android:id="@+id/campo_contrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_iniciar_sesion"
+        android:id="@+id/boton_iniciar_sesion"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="@string/iniciar_sesion"
@@ -78,7 +78,7 @@
         app:cornerRadius="12dp" />
 
     <TextView
-        android:id="@+id/tv_registro"
+        android:id="@+id/texto_registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

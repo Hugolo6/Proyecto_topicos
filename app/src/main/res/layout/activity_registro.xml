@@ -47,7 +47,7 @@
             app:startIconDrawable="@android:drawable/ic_menu_myplaces">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_nombre"
+                android:id="@+id/campo_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
@@ -64,7 +64,7 @@
             app:startIconDrawable="@android:drawable/ic_dialog_email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_correo"
+                android:id="@+id/campo_correo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
@@ -82,7 +82,7 @@
             app:startIconDrawable="@android:drawable/ic_lock_idle_lock">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_contrasena"
+                android:id="@+id/campo_contrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -100,14 +100,14 @@
             app:startIconDrawable="@android:drawable/ic_lock_idle_lock">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_confirmar_contrasena"
+                android:id="@+id/campo_confirmar_contrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/cb_terminos"
+            android:id="@+id/casilla_terminos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
@@ -116,7 +116,7 @@
             android:buttonTint="@color/primary" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_registrarse"
+            android:id="@+id/boton_registrarse"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="@string/registrarse"
@@ -125,7 +125,7 @@
             app:cornerRadius="12dp" />
 
         <TextView
-            android:id="@+id/tv_inicio_sesion"
+            android:id="@+id/texto_inicio_sesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
