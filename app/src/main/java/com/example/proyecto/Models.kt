@@ -44,3 +44,15 @@ data class DetallesPedido(
     val cantidad: Int = 0,
     val precio_unitario: Double = 0.0
 )
+
+data class Direccion(
+    val id_direccion: String = "",
+    val id_usuario: String = "",
+    val calle: String = "",
+    val numero: String = "",
+    val colonia: String = "",
+    val ciudad: String = "",
+    val estado: String = "",
+    val codigo_postal: String = "",
+    val referencia: String = ""
+)

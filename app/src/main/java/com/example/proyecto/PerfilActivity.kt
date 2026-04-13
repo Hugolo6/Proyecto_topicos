@@ -32,6 +32,14 @@ class PerfilActivity : AppCompatActivity() {
             binding.tvNombreUsuario.text = user.displayName ?: "Usuario TechStore"
         }
 
+        binding.btnMisPedidos.setOnClickListener {
+            startActivity(Intent(this, MisPedidosActivity::class.java))
+        }
+
+        binding.btnDirecciones.setOnClickListener {
+            startActivity(Intent(this, DireccionesActivity::class.java))
+        }
+
         binding.btnIrLogin.setOnClickListener {
             val intent = Intent(this, InicioSesionActivity::class.java)
             // Clear stack to prevent back button from returning to profile if they log out
