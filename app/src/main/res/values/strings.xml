@@ -43,4 +43,6 @@
     <string name="categorias">Categorías</string>
     <string name="ofertas">Ofertas</string>
     <string name="acepto_terminos">Acepto los términos y condiciones</string>
+    <string name="abrir_drawer">Abrir menú</string>
+    <string name="cerrar_drawer">Cerrar menú</string>
 </resources>
