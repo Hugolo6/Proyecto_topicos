@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyecto.databinding.ActivityPagoBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,19 +27,50 @@ class PagoActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Pago"
+        supportActionBar?.title = "Finalizar Compra"
 
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 
-        // Configurar los radio buttons por defecto
-        binding.rbEfectivo.text = "Efectivo (Pago al recibir)"
+        // Configuración inicial
         binding.rbEfectivo.isChecked = true
+
+        binding.btnSeleccionarDireccion.setOnClickListener {
+            mostrarDialogoSeleccionDireccion()
+        }
 
         binding.btnConfirmar.setOnClickListener {
             procesarPedido()
         }
+    }
+
+    private fun mostrarDialogoSeleccionDireccion() {
+        val uid = auth.currentUser?.uid ?: return
+        
+        db.collection("Usuarios").document(uid).collection("Direcciones")
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.isEmpty) {
+                    Toast.makeText(this, "No tienes direcciones guardadas", Toast.LENGTH_SHORT).show()
+                    return@addOnSuccessListener
+                }
+
+                val direcciones = documents.toObjects(Direccion::class.java)
+                val items = direcciones.map { "${it.calle} ${it.numero}, ${it.colonia}" }.toTypedArray()
+
+                AlertDialog.Builder(this)
+                    .setTitle("Selecciona una dirección")
+                    .setItems(items) { _, which ->
+                        val seleccionada = direcciones[which]
+                        binding.etDireccion.setText("${seleccionada.calle} ${seleccionada.numero}, ${seleccionada.colonia}")
+                        binding.etCiudad.setText("${seleccionada.ciudad}, ${seleccionada.estado}")
+                    }
+                    .show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al cargar direcciones", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun procesarPedido() {
@@ -60,7 +92,6 @@ class PagoActivity : AppCompatActivity() {
             return
         }
 
-        // Mostrar progreso o desactivar botón
         binding.btnConfirmar.isEnabled = false
         
         val total = CarritoManager.obtenerTotal()
@@ -78,11 +109,9 @@ class PagoActivity : AppCompatActivity() {
             "estado" to "Pendiente"
         )
 
-        // 1. Guardar el pedido principal
         db.collection("Pedidos").document(orderId)
             .set(pedido)
             .addOnSuccessListener {
-                // 2. Guardar los detalles del pedido (productos)
                 guardarDetallesPedido(orderId)
             }
             .addOnFailureListener {
@@ -101,7 +130,7 @@ class PagoActivity : AppCompatActivity() {
                 "id_pedido" to orderId,
                 "id_producto" to producto.id_producto,
                 "nombre_producto" to producto.nombre,
-                "cantidad" to 1, // Por ahora simplificado a 1 por producto
+                "cantidad" to 1,
                 "precio_unitario" to producto.precio * (1 - producto.descuento)
             )
             batch.set(detalleRef, detalle)
@@ -116,8 +145,6 @@ class PagoActivity : AppCompatActivity() {
                 finish()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Pedido creado, pero hubo un error con los detalles", Toast.LENGTH_SHORT).show()
-                // De todas formas lo mandamos a confirmación ya que el pedido principal sí se creó
                 CarritoManager.limpiarCarrito()
                 startActivity(Intent(this, ConfirmacionPedidoActivity::class.java))
                 finish()
