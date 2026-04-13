@@ -44,7 +44,7 @@
                         android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        android:src="@android:drawable/ic_menu_send"
                         app:tint="@color/white" />
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>

@@ -34,6 +34,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/blue_bright"
         app:cardCornerRadius="24dp"
         android:layout_marginBottom="-24dp"
         app:cardElevation="16dp"
@@ -56,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/subtotal"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="#E3F2FD"
                     android:textSize="16sp" />
 
                 <TextView
@@ -64,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$450.00"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -80,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/impuestos"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="#E3F2FD"
                     android:textSize="16sp" />
 
                 <TextView
@@ -88,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$36.00"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -97,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="16dp"
-                android:background="@color/divider" />
+                android:background="#40FFFFFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -109,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/total"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -118,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$486.00"
-                    android:textColor="@color/accent"
+                    android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -130,7 +131,9 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/proceder_al_pago"
                 android:textAllCaps="false"
+                android:textColor="@color/primary"
                 android:textSize="18sp"
+                app:backgroundTint="@color/white"
                 app:cornerRadius="16dp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
