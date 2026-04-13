@@ -1,6 +1,7 @@
 package com.example.proyecto
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyecto.databinding.ActivityCarritoBinding
@@ -47,12 +48,13 @@ class CarritoActivity : AppCompatActivity() {
     }
 
     private fun actualizarTotales() {
-        val subtotal = CarritoManager.obtenerSubtotal()
         val total = CarritoManager.obtenerTotal()
-        val impuestos = total - subtotal
+        
+        // Ocultar subtotal e impuestos ya que están incluidos
+        binding.layoutSubtotal.visibility = View.GONE
+        binding.layoutImpuestos.visibility = View.GONE
+        binding.divisorPrecios.visibility = View.GONE
 
-        binding.tvSubtotal.text = "$${String.format("%.2f", subtotal)}"
-        binding.tvImpuestos.text = "$${String.format("%.2f", impuestos)}"
         binding.tvTotal.text = "$${String.format("%.2f", total)}"
     }
 }

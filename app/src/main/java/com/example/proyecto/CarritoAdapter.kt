@@ -19,9 +19,17 @@ class CarritoAdapter(
 
     override fun onBindViewHolder(holder: CarritoViewHolder, position: Int) {
         val producto = productos[position]
+        val context = holder.itemView.context
+        
         holder.binding.tvNombreCarrito.text = producto.nombre
-        holder.binding.tvPrecioCarrito.text = "$${producto.precio}"
+        holder.binding.tvPrecioCarrito.text = "$${String.format("%.2f", producto.precio)}"
         holder.binding.tvCantidadCarrito.text = "Cantidad: 1"
+
+        // Cargar imagen local dinámica
+        val imageResId = context.resources.getIdentifier(producto.imagen_url, "mipmap", context.packageName)
+        if (imageResId != 0) {
+            holder.binding.ivProductoCarrito.setImageResource(imageResId)
+        }
 
         holder.binding.btnEliminar.setOnClickListener {
             onEliminarClick(producto)

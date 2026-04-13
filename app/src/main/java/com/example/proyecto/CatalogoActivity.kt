@@ -54,9 +54,11 @@ class CatalogoActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         // Configurar Filtros de Categoría
         binding.grupoCategorias.setOnCheckedStateChangeListener { group, checkedIds ->
-            val chip = group.findViewById<Chip>(checkedIds.first())
-            val categoria = chip.text.toString()
-            filtrarPorCategoria(categoria)
+            if (checkedIds.isNotEmpty()) {
+                val chip = group.findViewById<Chip>(checkedIds.first())
+                val categoria = chip.text.toString()
+                filtrarPorCategoria(categoria)
+            }
         }
 
         cargarProductos()
@@ -65,22 +67,24 @@ class CatalogoActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     private fun cargarProductos() {
         todasLosProductos.clear()
         
-        // Producto 1: Laptop
+        // Producto 1: Laptop (Descuento 15% aplicado)
+        // Precio original 43990 -> 37391.50
         todasLosProductos.add(Producto(
             "1", 
             "HP OMEN 16 Slim", 
             "Gaming Laptop, Intel Core Ultra 9, RTX 5070, 32GB RAM", 
             "HP OMEN 16 Slim Gaming Laptop, visualización 2K de 16 pulgadas 144 Hz, Intel Core Ultra 9 285H, NVIDIA GeForce RTX 5070, AI VR Ready, teclado retroiluminado RGB, negro, Windows 11 Pro (32)\n\nMemoria: 32 GB DDR5 RAM.\nAlmacenamiento: SSD PCIe de 1 TB\nProcesador: Intel Core Ultra 9 285H\nGráficos: RTX 5070 8GB GDDR7\nPortátil AI con Intel AI Boost NPU\nPC Copilot+", 
-            43990.0, 10, "Laptops", "p1"
+            37391.50, 10, "Laptops", "laptop1"
         ))
 
-        // Producto 2: Adaptador
+        // Producto 2: Adaptador (Descuento 10% aplicado)
+        // Precio original 150.20 -> 135.18
         todasLosProductos.add(Producto(
             "2", 
             "UGREEN USB C Hub", 
             "5 en 1 Adaptador USB C Multipuerto Aluminio a 4K HDMI", 
             "UGREEN USB C Hub, 5 en 1 Adaptador USB C Multipuerto Aluminio a 4K 30Hz HDMI, 1 USB 3.0 y 2 USB 2.0, PD Carga Compatible con MacBook M1 M2 Pro Air iPad iPhone 16 Galaxy S24 Chromebook DELL XPS y Más", 
-            150.20, 50, "Accesorios", "p2"
+            135.18, 50, "Accesorios", "adaptador2"
         ))
 
         // Producto 3: Soporte
@@ -89,16 +93,17 @@ class CatalogoActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             "Soporte KIROGILY", 
             "Acero Carbono, Plegable, Estable y Antideslizante", 
             "Soporte para Laptop Acero Carbono, Base para Laptop Plegable Portátil Estable y Antideslizante, Base Enfriadora para Laptop Stand con Base Giratoria 360° y Altura Ajustable. Soporta hasta 10 kg, diseño hueco para disipación de calor, ajustable en altura y ángulo.", 
-            450.0, 30, "Accesorios", "p3"
+            450.0, 30, "Accesorios", "soporte3"
         ))
 
-        // Producto 4: Teléfono
+        // Producto 4: Teléfono (Descuento 13% aplicado)
+        // Precio original 10969 -> 9543.03
         todasLosProductos.add(Producto(
             "4", 
             "HUAWEI Pura 80", 
             "12+256G, Cámara XMAGE Ultra Chroma, 5170 mAh", 
             "HUAWEI Pura 80 Celular, 12+256G, Cámara XMAGE Ultra Chroma, Cancelación de Ruido con IA, Gran Batería de 5170 mAh y Dual Supercharge, Cristal Mate y Diseño de Bordes Planos, Blanco. Kunlun Glass de 2da generación.", 
-            10969.0, 20, "Smartphones", "p4"
+            9543.03, 20, "Smartphones", "telefono4"
         ))
 
         // Mostrar todos al inicio
