@@ -151,7 +151,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_añadir_al_carrito"
+        android:id="@+id/btn_anadir_al_carrito"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
