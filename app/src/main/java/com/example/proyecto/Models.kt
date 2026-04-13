@@ -20,6 +20,7 @@ data class Producto(
     val descripcion: String = "",
     val especificaciones: String = "",
     val precio: Double = 0.0,
+    val descuento: Double = 0.0, // Porcentaje de descuento (ej: 0.15 para 15%)
     val stock: Int = 0,
     val id_categoria: String = "",
     val imagen_url: String = ""

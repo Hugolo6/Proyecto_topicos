@@ -14,6 +14,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="success">#27AE60</color>
-    <color name="blue_bright">#00A8FF</color> <!-- Nuevo azul llamativo -->
+    <color name="blue_bright">#00A8FF</color>
     <color name="blue_dark_variant">#0097E6</color>
+    <color name="blue_soft_transparent">#2000A8FF</color> <!-- Azul muy bajito (12% opacidad) -->
 </resources>

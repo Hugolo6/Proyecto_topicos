@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
-    android:background="@color/primary"
+    android:layout_height="200dp"
+    android:background="@color/blue_bright"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:padding="24dp">
 
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@android:drawable/sym_def_app_icon" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:cardCornerRadius="35dp"
+        app:cardElevation="4dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_usuario_perfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="@color/blue_bright" />
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
+        android:id="@+id/tv_nombre_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:text="@string/bienvenido"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:paddingTop="16dp"
+        android:text="Usuario TechStore"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/tv_correo_nav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="usuario@ejemplo.com"
-        android:textColor="@color/white" />
+        android:text="usuario@techstore.com"
+        android:textColor="#E3F2FD"
+        android:textSize="14sp" />
 </LinearLayout>

@@ -17,12 +17,8 @@ object CarritoManager {
         items.clear()
     }
 
-    fun obtenerSubtotal(): Double {
-        return items.sumOf { it.precio }
-    }
-
     fun obtenerTotal(): Double {
-        val subtotal = obtenerSubtotal()
-        return subtotal + (subtotal * 0.16) // 16% IVA
+        // Sumamos el precio con el descuento ya aplicado de cada producto
+        return items.sumOf { it.precio * (1 - it.descuento) }
     }
 }

@@ -24,7 +24,6 @@ class CarritoActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        // Configurar RecyclerView con callback para eliminar
         val productos = CarritoManager.obtenerProductos().toMutableList()
         adapter = CarritoAdapter(productos) { producto ->
             CarritoManager.eliminarProducto(producto)
@@ -48,13 +47,22 @@ class CarritoActivity : AppCompatActivity() {
     }
 
     private fun actualizarTotales() {
-        val total = CarritoManager.obtenerTotal()
+        val totalConDescuento = CarritoManager.obtenerTotal()
         
-        // Ocultar subtotal e impuestos ya que están incluidos
-        binding.layoutSubtotal.visibility = View.GONE
-        binding.layoutImpuestos.visibility = View.GONE
-        binding.divisorPrecios.visibility = View.GONE
+        // En el carrito mostramos el Subtotal (precio original sin descuento)
+        // Y el total ya con el descuento aplicado
+        val subtotalOriginal = CarritoManager.obtenerProductos().sumOf { it.precio }
+        val ahorro = subtotalOriginal - totalConDescuento
 
-        binding.tvTotal.text = "$${String.format("%.2f", total)}"
+        binding.layoutSubtotal.visibility = View.VISIBLE
+        binding.tvSubtotal.text = "$${String.format("%.2f", subtotalOriginal)}"
+        
+        binding.layoutImpuestos.visibility = View.VISIBLE
+        binding.labelImpuestos.text = "Descuento aplicado:"
+        binding.tvImpuestos.text = "-$${String.format("%.2f", ahorro)}"
+        binding.tvImpuestos.setTextColor(android.graphics.Color.YELLOW)
+
+        binding.divisorPrecios.visibility = View.VISIBLE
+        binding.tvTotal.text = "$${String.format("%.2f", totalConDescuento)}"
     }
 }
